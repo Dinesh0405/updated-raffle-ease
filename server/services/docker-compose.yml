@@ -1,0 +1,94 @@
+services:
+  config-server:
+    image: config-server
+    container_name: config-server
+    ports:
+      - "8888:8888"
+    networks:
+      - configs-net
+
+  discovery-server:
+    image: discovery-server
+    container_name: discovery-server
+    ports:
+      - "8761:8761"
+    depends_on:
+      - config-server
+    networks:
+      - configs-net
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+
+  associations-service:
+    image: associations-service
+    container_name: associations-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - config-server
+      - discovery-server
+      - associations-db
+    networks:
+      - configs-net
+      - associations-net
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+
+  associations-db:
+    container_name: associations-db
+    image: postgres
+    environment:
+      POSTGRES_DB: associations
+      POSTGRES_USER: ${associations_db_user}
+      POSTGRES_PASSWORD: ${associations_db_password}
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - associations-data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    networks:
+      - associations-net
+
+  raffles-service:
+    image: raffles-service
+    container_name: raffles-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      - config-server
+      - discovery-server
+      - raffles-db
+      - associations-service
+    networks:
+      - configs-net
+      - raffles-net
+      - associations-net
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+
+  raffles-db:
+    container_name: raffles-db
+    image: postgres
+    environment:
+      POSTGRES_DB: raffles
+      POSTGRES_USER: ${raffles_db_user}
+      POSTGRES_PASSWORD: ${raffles_db_password}
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - raffles-data:/var/lib/postgresql/data
+    ports:
+      - "5434:5432"
+    networks:
+      - raffles-net
+
+networks:
+  configs-net:
+    driver: bridge
+  associations-net:
+    driver: bridge
+  raffles-net:
+    driver: bridge
+
+volumes:
+  associations-data:
+  raffles-data:

@@ -1,0 +1,258 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"); */
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Ensures footer stays at the bottom */
+}
+
+.background-splash {
+    background-image: url("/assets/images/background.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Container Styling */
+.container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    width: 100%;
+    max-width: 1720px;
+    /* Max width for large devices */
+    margin: 20px auto 0;
+    flex-grow: 1;
+    /* Allow the container to grow and fill available space */
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.hidden {
+    display: hidden;
+}
+
+/* Button Styles */
+.btn {
+    background-color: #715cf8;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+.btn:hover {
+    background-color: #543bf7;
+}
+
+
+.btn-edit {
+    background-color: #543bf7;
+    color: white;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #ca1312;
+}
+
+.btn-default {
+    background-color: #715cf8;
+    color: white;
+}
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: #715cf8;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-left: 20px;
+}
+
+.logout-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.logout-btn:hover {
+    background-color: #543bf7;
+    color: white;
+}
+
+label {
+    padding-left: 2px;
+    font-weight: 500;
+}
+
+.logo {
+    width: 80px;
+    height: auto;
+    object-fit: contain;
+    margin: auto;
+}
+
+footer {
+    padding: 10px;
+    background-color: #f1f1f1;
+    font-weight: 600;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: -webkit-fill-available; 
+}
+
+footer p {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+}
+
+.relative {
+    position: relative;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.text-black-stroke {
+    text-shadow: -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+.black-outline {
+    color: white;
+    text-shadow: -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+@media (max-width: 1200px) {
+    .container,
+    .section-title {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container,
+    .admin-logo-text {
+        font-size: 16px;
+    }
+
+    .admin-header-logo {
+        height: 36px;
+        width: 36px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container,
+    .admin-logo-text {
+        display: none;
+    }
+
+    .admin-nav-link {
+        font-size: 14px;
+        margin-left: 10px;
+    }
+
+    .logout-btn {
+        padding: 6px 12px;
+        margin-left: 0px;
+    }
+
+    .logout-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .admin-header-logo {
+        height: 32px;
+        width: 32px;
+    }
+
+    .section-title {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container,
+    footer p {
+        font-size: 12px;
+    }
+
+    .page-title {
+        font-size: 20px;
+    }
+
+    .btn {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .form {
+        gap: 15px;
+    }
+
+    .btn {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .admin-header-logo {
+        height: 32px;
+        width: 32px;
+    }
+
+    .logo {
+        width: 40px;
+    }
+
+    .section-title {
+        font-size: 14px;
+    }
+}

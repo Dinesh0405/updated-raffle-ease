@@ -1,0 +1,24 @@
+@if (raffleId) {
+<div class="raffle-cards-container">
+    <h1 class="section-title">Raffle Management</h1>
+    <section class="raffle-container">
+        
+        <div class="raffle-contents">
+            <div class="raffle-images">
+                <app-raffle-images [raffleId]="raffleId"></app-raffle-images>
+            </div>
+            <div class="raffle-details">
+                <app-raffle-details [raffleId]="raffleId" [(raffle)]="raffle"></app-raffle-details>
+                @if (raffle) {
+                    <app-actions [raffleStatus]="raffle.status" [raffleId]="raffleId"
+                        (actionTriggered)="handleAction($event)"></app-actions>
+                    }
+            </div>
+        </div>
+      
+    </section>
+</div>
+<app-modals [raffleId]="raffleId" [display]="displayModal" [action]="selectedAction" (confirmed)="onActionConfirmed()"
+    (closed)="hiddeModal()">
+    ></app-modals>
+}

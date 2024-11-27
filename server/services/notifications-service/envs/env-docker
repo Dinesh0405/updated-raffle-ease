@@ -1,0 +1,11 @@
+configs_host=config-server
+configs_port=8888
+eureka_host=discovery-server
+eureka_port=8761
+kafka_host=kafka-server
+kafka_port=9092
+notifications_db_host=notifications-db
+notifications_db_port=5432
+notifications_db=notifications
+notifications_db_user=notifications-user
+notifications_db_password=1234
