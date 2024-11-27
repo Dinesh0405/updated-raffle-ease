@@ -10,9 +10,9 @@ import { S3Service } from '../../../../../../core/services/s3/s3-service.service
   styleUrl: './client-images.component.css'
 })
 export class ClientImagesComponent {
-  @Input() imageKeys!: string[];
-  urls!: string[];
-  mainImage!: string;
+  @Input() imageKeys: string[]=['http://localhost:4202/assets/images/sample.png'];
+  urls: string[]=['http://localhost:4202/assets/images/sample.png','http://localhost:4202/assets/images/sample.png'];
+  mainImage: string='http://localhost:4202/assets/images/sample.png';
 
   constructor(
     private s3Service: S3Service

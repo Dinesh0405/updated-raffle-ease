@@ -1,0 +1,6 @@
+.cursor-pointer{
+    display: flex;
+        justify-content: start;
+        padding: 8px;
+        gap: 8px;
+}

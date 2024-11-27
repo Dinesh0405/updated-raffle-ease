@@ -6,9 +6,9 @@ const routes: Routes = [
   {
     path: 'raffle/:id',
     loadComponent: () => import('./components/pages/landing/landing.component').then(c => c.LandingComponent),
-    resolve: {
-      raffle: ClientRafflesResolver
-    }
+    // resolve: {
+    //   raffle: ClientRafflesResolver
+    // }
   },
   {
     path: 'payment',
