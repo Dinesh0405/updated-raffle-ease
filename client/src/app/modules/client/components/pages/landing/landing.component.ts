@@ -18,22 +18,8 @@ import { FooterComponent } from "../../../../admin/components/shared/footer/foot
   styleUrl: './landing.component.css'
 })
 export class LandingComponent {
-  raffle: Raffle = 
-    {
-        id: 1,
-        title: "Luxury Car Giveaway",
-        description: "Win a brand new luxury car! Don't miss out on this amazing opportunity.",
-        startDate: new Date("2024-11-01T00:00:00Z"),
-        endDate: "2024-12-01T00:00:00Z",
-        status: 'ACTIVE', // assuming RaffleStatus is an enum like: 'active', 'completed', etc.
-        imageKeys: ['http://localhost:4202/assets/images/sample.png'],
-        ticketPrice: 50,
-        availableTickets: 5000,
-        soldTickets: 1500,
-        totalTickets: 5000,
-        revenue: 75000, // 1500 tickets sold * 50 ticket price
-        associationId: 101
-    };
+  raffle!: Raffle
+   
 
   constructor(
     private route: ActivatedRoute,
