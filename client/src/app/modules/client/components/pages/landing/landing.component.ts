@@ -35,6 +35,6 @@ export class LandingComponent {
   }
 
   ngOnInit() {
-   // this.setRaffle();
+   this.setRaffle();
   }
 }
