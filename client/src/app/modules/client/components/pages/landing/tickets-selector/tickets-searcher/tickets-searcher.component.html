@@ -1,9 +1,9 @@
 <div class="relative">
     <div>
         <h4 class="text-lg font-semibold m-0">Add by Search</h4>
-        <div class="relative w-full">
+        <div class="relative">
             <input type="text"
-                class="w-full p-2 text-base border border-black rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
+                class="p-2 text-base border border-black rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
                 placeholder="Search..." [ngClass]="{'invalid-input': invalidInput}" [formControl]="searchControl" />
 
             <app-select-btn [invalid]="invalidInput" [raffleId]="raffle.id" [ticket]="selectedTicket"

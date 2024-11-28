@@ -5,8 +5,9 @@
     <section class="align-land">
     
         <app-client-images [imageKeys]="raffle.imageKeys"></app-client-images>
-        <app-raffle-details></app-raffle-details>
-        <div class="block">
+      
+        <div class="block align-section" >
+         <app-raffle-details></app-raffle-details>
         <app-tickets-selector [raffle]="raffle"></app-tickets-selector>
         <app-raffle-description></app-raffle-description>
         <app-cart></app-cart>
