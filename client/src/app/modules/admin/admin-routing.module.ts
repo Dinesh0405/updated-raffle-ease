@@ -6,10 +6,10 @@ import { AdminRafflesResolver } from '../../core/resolvers/admin-raffles.resolve
 const routes: Routes = [
   {
     path: '', loadChildren: () => import("./components/pages/admin-layout/admin-layout.routes").then(c => c.ADMIN_ROUTES),
-   canActivate: [AuthGuard],
-    resolve: {
-      raffles: AdminRafflesResolver
-    }
+  //  canActivate: [AuthGuard],
+  //   resolve: {
+  //     raffles: AdminRafflesResolver
+  //   }
   },
   {
     path: 'auth', loadChildren: () => import('./components/pages/auth/auth.routes').then(c => c.AUTH_ROUTES)
